@@ -142,11 +142,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         itemDetailModal.classList.remove('hidden');
-        // Aggiungi un piccolo ritardo per permettere la transizione CSS
         setTimeout(() => {
             document.getElementById('modal-content-wrapper').classList.remove('opacity-0', 'scale-95');
             document.getElementById('modal-content-wrapper').classList.add('opacity-100', 'scale-100');
         }, 10);
+
+        // Aggiungi uno stato alla history per il popup
+        history.pushState({ modal: 'item-detail' }, '');
     }
 
     /**
@@ -157,7 +159,12 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('modal-content-wrapper').classList.add('opacity-0', 'scale-95');
         setTimeout(() => {
             itemDetailModal.classList.add('hidden');
-        }, 300); // Corrisponde alla durata della transizione CSS
+        }, 300);
+
+        // Torna indietro nella history solo se il popup era aperto tramite pushState
+        if (history.state && history.state.modal === 'item-detail') {
+            history.back();
+        }
     }
 
     /**
@@ -174,6 +181,9 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('directions-modal-content-wrapper').classList.remove('opacity-0', 'scale-95');
             document.getElementById('directions-modal-content-wrapper').classList.add('opacity-100', 'scale-100');
         }, 10);
+
+        // Aggiungi uno stato alla history per il popup
+        history.pushState({ modal: 'directions' }, '');
     }
 
     /**
@@ -184,7 +194,12 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('directions-modal-content-wrapper').classList.add('opacity-0', 'scale-95');
         setTimeout(() => {
             directionsModal.classList.add('hidden');
-        }, 300); // Corrisponde alla durata della transizione CSS
+        }, 300);
+
+        // Torna indietro nella history solo se il popup era aperto tramite pushState
+        if (history.state && history.state.modal === 'directions') {
+            history.back();
+        }
     }
 
     // Event listener per chiudere il modale del dettaglio piatto
@@ -212,4 +227,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Aggiorna il menù ogni ora (o più frequentemente se desiderato)
     setInterval(displayMenu, 3600000); // 3600000 ms = 1 ora
+});
+
+// Gestione del tasto indietro
+window.addEventListener('popstate', function (event) {
+    // Se c'è un popup aperto, chiudilo
+    if (!itemDetailModal.classList.contains('hidden')) {
+        hideItemDetail();
+    } else if (!directionsModal.classList.contains('hidden')) {
+        hideDirectionsModal();
+    } else {
+        // Se nessun popup è aperto, rimani sulla pagina (inibisci la chiusura)
+        history.pushState(null, '', document.URL);
+    }
+});
+
+// All'avvio, aggiungi uno stato iniziale per bloccare la chiusura
+window.addEventListener('DOMContentLoaded', () => {
+    history.replaceState({ modal: null }, '');
+    // ...resto del tuo codice...
 });
