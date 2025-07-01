@@ -1,0 +1,135 @@
+/* style-mobile.css */
+
+/* Media query per schermi più piccoli (max-width: 768px) */
+@media (max-width: 768px) {
+    /* Header */
+    header {
+        padding: 0rem; /*1.5rem 1rem; /* py-6 px-4 di Tailwind */
+        flex-direction: column; /* Impila gli elementi verticalmente */
+        align-items: center;
+        font-size: 10px;
+    }
+
+    header .container {
+        flex-direction: row; /* Impila logo e titolo verticalmente su mobile */
+        align-items: center;
+    }
+
+    header .container .flex.items-center {
+        flex-direction: row; /* Assicura che logo e titolo siano in colonna */
+        margin-bottom: 0rem; /* Spazio sotto il blocco logo/titolo */
+    }
+
+    header h1 {
+        font-size: 2.5rem; /* Adatta la dimensione del titolo */
+        text-align: center;
+        width: 100%;
+        margin-top: 0.5rem; /* Spazio tra logo e titolo */
+    }
+
+    header img {
+        margin-right: 0; /* Rimuovi margine destro del logo */
+    }
+
+    /* Main content section */
+    main section {
+        padding: 1.5rem; /* p-6 di Tailwind */
+        margin-top: 140px;
+    }
+
+    #menu-title {
+        font-size: 2rem; /* Adatta la dimensione del titolo del menù */
+        margin-bottom: 1rem;
+    }
+
+    #current-date-time {
+        font-size: 0.875rem; /* text-sm di Tailwind */
+        margin-bottom: 1.5rem;
+    }
+
+    /* Contenitore del menù */
+    #menu-container {
+        grid-template-columns: 1fr; /* Una colonna per i dispositivi mobili */
+        gap: 1.5rem; /* gap-6 di Tailwind */
+    }
+
+    /* Card del piatto */
+    .menu-item-card {
+        margin: 0 auto; /* Centra le card */
+        width: 100%; /* Le card occupano tutta la larghezza disponibile */
+        max-width: 400px; /* Limita la larghezza massima per una migliore leggibilità */
+    }
+
+    .menu-item-card img {
+        height: 180px; /* Riduci l'altezza delle immagini delle card */
+    }
+
+    .menu-item-content {
+        padding: 1rem; /* p-4 di Tailwind */
+    }
+
+    .menu-item-content h3 {
+        font-size: 1.5rem; /* Aumentato il nome del piatto per mobile */
+    }
+
+    .menu-item-content p.price {
+        font-size: 1.3rem; /* Aumentato il prezzo per mobile */
+    }
+
+    .label {
+        font-size: 0.75rem; /* text-xs di Tailwind */
+        padding: 0.25rem 0.6rem;
+    }
+
+    /* Modale per i dettagli del piatto */
+    #item-detail-modal #modal-content-wrapper,
+    #directions-modal #directions-modal-content-wrapper {
+        max-width: 95%; /* Aumenta la larghezza massima del modale */
+        padding: 1.5rem;
+    }
+
+    #detail-item-name {
+        font-size: 2.2rem; /* Aumentato il nome del piatto nel modale per mobile */
+        margin-right: 3rem; /* Spazio per il pulsante di chiusura */
+        margin-bottom: 1rem; /* Riduci il margine inferiore */
+    }
+
+    #detail-item-price {
+        font-size: 1.7rem; /* Aumentato il prezzo nel modale per mobile */
+    }
+
+    #detail-item-image {
+        height: 200px; /* Riduci l'altezza dell'immagine del dettaglio */
+    }
+
+    #detail-item-description {
+        font-size: 1rem; /* text-base di Tailwind */
+    }
+
+    #directions-modal-content-wrapper h3 {
+    font-size: 25px; /* Come #detail-item-name */
+    padding-right: 3.5rem; /* Spazio per il pulsante di chiusura */
+    text-align: center;
+    font-weight: 700;
+}
+
+    #close-modal, #close-directions-modal {
+        top: 0.75rem;
+        right: 0.75rem;
+        font-size: 1.75rem; /* text-2xl di Tailwind */
+        width: 40px;
+        height: 40px;
+    }
+
+    /* Footer */
+    footer {
+        padding: 1.5rem 1rem; /* py-6 px-4 di Tailwind */
+    }
+
+    footer p {
+        font-size: 0.875rem; /* text-sm di Tailwind */
+    }
+    /* --- Placeholder per il colore di sfondo del footer su mobile --- */
+    /* footer { background-color: #2d3748; } */
+    /* --- Fine Placeholder --- */
+}

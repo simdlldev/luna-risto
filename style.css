@@ -1,0 +1,279 @@
+/* style.css */
+
+/* Stili generali per il corpo e il layout */
+body {
+    color: #374151; /* text-gray-800 di Tailwind */
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative; /* Necessario per il posizionamento degli elementi figli */
+}
+
+/* Overlay di sfondo con immagine e blur */
+#background-blur-overlay {
+    position: fixed; /* Rende l'overlay fisso rispetto al viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('luna-4.png');/*'https://www.lunathica.it/lunamoon/wp-content/uploads/2023/06/circus-village-2023-02-1024x512.jpg'); /* Sostituisci con la tua immagine */
+    background-size: cover;
+    background-attachment: scroll; /* L'immagine scorre con l'overlay, ma l'overlay è fisso */
+    background-position: center center;
+    filter: blur(2px); /* Applica un leggero blur all'immagine di sfondo */
+    -webkit-filter: blur(2px); /* Per compatibilità con browser WebKit */
+    z-index: -1; /* Posiziona sotto tutto il contenuto */
+}
+
+
+.container {
+    max-width: 1200px;
+}
+
+/* Header */
+header {
+    position: fixed;      /* Rende l'header fisso */
+    top: 0;               /* Aggancia l'header in alto */
+    left: 0;
+    width: 100%;          /* Occupa tutta la larghezza */
+    z-index: 200;         /* Sopra gli altri elementi */
+    background-color: rgba(0, 67, 152, 0.9); /* Sfondo semi-trasparente */
+    backdrop-filter: blur(10px);
+    color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+}
+
+/* Allineamento logo e titolo nell'header per desktop */
+header .container {
+    display: flex;
+    flex-direction: row; /* Assicura che logo e titolo siano affiancati */
+    justify-content: flex-start; /* Allinea a sinistra */
+    align-items: center;
+}
+
+header h1 {
+    color: #ffffff; /* text-gray-900 di Tailwind */
+    /* --- Placeholder per il colore del titolo --- */
+    /* color: #FF6347; */
+    /* --- Fine Placeholder --- */
+}
+
+/* Main content section */
+main section {
+    background-color: rgba(255, 255, 255, 0.8); /* Aggiunta trasparenza */
+    backdrop-filter: blur(10px); /* Applica il blur */
+    padding: 2rem; /* p-8 di Tailwind */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* shadow-lg di Tailwind */
+    border-radius: 2.5rem; /* rounded-2xl di Tailwind */
+    position: relative; /* Per assicurare che sia sopra il background-blur-overlay */
+    z-index: 5;
+    margin-top: 120px; /* Spazio per l'header fisso */
+}
+
+/* Titoli */
+h2, h3 {
+    color: #1f2937; /* text-gray-900 di Tailwind */
+}
+
+pq {
+    color: rgba(0, 0, 0, 0); /* Colore del testo per il paragrafo */
+}
+
+/* Contenitore del menù */
+#menu-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsivo per desktop */
+    gap: 2rem; /* gap-8 di Tailwind */
+}
+
+/* Stile per ogni card del piatto */
+.menu-item-card {
+    background-color: rgba(255, 255, 255, 1); /* Le card interne rimangono opache per leggibilità */
+    border-radius: 2rem; /* rounded-xl di Tailwind */
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md di Tailwind */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+}
+
+.menu-item-card img {
+    width: 100%;
+    height: 200px; /* Altezza fissa per le immagini delle card */
+    object-fit: cover;
+    border-top-left-radius: 1rem; /* rounded-xl */
+    border-top-right-radius: 1rem; /* rounded-xl */
+}
+
+.menu-item-content {
+    padding: 1.5rem; /* p-6 di Tailwind */
+    flex-grow: 1; /* Permette al contenuto di espandersi */
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item-content h3 {
+    font-size: 1.75rem; /* Aumentato il nome del piatto */
+    font-weight: 600; /* font-semibold di Tailwind */
+    margin-bottom: 0.5rem;
+}
+
+.menu-item-content p.price {
+    font-size: 1.5rem; /* Aumentato il prezzo */
+    color: #ea580c; /* text-orange-600 di Tailwind */
+    font-weight: 700; /* font-bold di Tailwind */
+    margin-bottom: 1rem;
+}
+
+.menu-item-labels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem; /* gap-2 di Tailwind */
+    margin-top: auto; /* Spinge le etichette in fondo */
+}
+
+.label {
+    background-color: #fef3c7; /* bg-amber-100 di Tailwind */
+    color: #b45309; /* text-amber-800 di Tailwind */
+    padding: 0.3rem 0.75rem; /* px-3 py-1 di Tailwind */
+    border-radius: 0.5rem; /* rounded-lg di Tailwind */
+    font-size: 0.875rem; /* text-sm di Tailwind */
+    font-weight: 600; /* font-semibold di Tailwind */
+    display: flex; /* Permette l'allineamento dell'icona */
+    align-items: center;
+    gap: 0.25rem; /* Spazio tra icona e testo */
+}
+
+/* Pulsante "Come Raggiungerci" */
+#directions-button {
+    background-color: rgba(0, 67, 152, 0.9); /* bg-orange-500 */
+    backdrop-filter: blur(10px); /* Applica il blur */
+    color: #ffffff;
+    font-weight: 700; /* font-bold */
+    padding: 0.75rem 1.5rem; /* py-3 px-6 */
+    border-radius: 1.2rem; /* rounded-lg */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-lg */
+    transition-property: all;
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#directions-button:hover {
+    background-color: rgba(253, 212, 0, 1); /* hover:bg-orange-600 */
+    transform: scale(1.05);
+    color: black;
+}
+
+
+/* Modali (generali per dettaglio piatto e indicazioni) */
+#item-detail-modal, #directions-modal {
+    position: fixed; /* Assicura che i modali siano fissi */
+    inset: 0; /* Copre l'intero viewport */
+    background-color: rgba(0, 0, 0, 0.3); /* Sfondo semi-trasparente */
+    backdrop-filter: blur(10px); /* Applica un effetto di sfocatura allo sfondo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    z-index: 100; /* Assicura che i modali siano sopra tutto */
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+#item-detail-modal.hidden, #directions-modal.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#item-detail-modal:not(.hidden) #modal-content-wrapper,
+#directions-modal:not(.hidden) #directions-modal-content-wrapper {
+    animation: scaleIn 0.3s ease-out forwards;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+#modal-content-wrapper, #directions-modal-content-wrapper {
+    background-color: rgba(255, 255, 255, 0.8); /* Aggiunta trasparenza */
+    border-radius: 1.5rem; /* rounded-2xl di Tailwind */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* shadow-2xl di Tailwind */
+    position: relative;
+    max-width: 48rem; /* max-w-2xl di Tailwind per il modale piatto */
+    width: 100%;
+}
+#directions-modal-content-wrapper {
+    max-width: 32rem; /* max-w-lg di Tailwind per il modale indicazioni */
+}
+
+
+#close-modal, #close-directions-modal {
+    background-color: #fef2f2; /* bg-red-50 di Tailwind */
+    color: #ef4444; /* text-red-500 di Tailwind */
+    border: none;
+    cursor: pointer;
+    font-size: 2rem; /* text-3xl di Tailwind */
+    line-height: 1;
+    border-radius: 9999px; /* rounded-full di Tailwind */
+    width: 48px; /* w-12 */
+    height: 48px; /* h-12 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+#close-modal:hover, #close-directions-modal:hover {
+    background-color: #fee2e2; /* hover:bg-red-100 di Tailwind */
+    color: #dc2626; /* hover:text-red-600 di Tailwind */
+}
+
+#detail-item-name {
+    font-size: 2.5rem; /* Aumentato il nome del piatto nel modale */
+}
+
+#detail-item-price {
+    font-size: 2rem; /* Aumentato il prezzo nel modale */
+}
+
+
+#detail-item-image {
+    border-radius: 1rem; /* rounded-xl di Tailwind */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md di Tailwind */
+}
+
+/* Stili specifici per il modale delle indicazioni stradali */
+#directions-modal-content-wrapper a {
+    transition: transform 0.2s ease-in-out;
+    background-color: rgba(0, 67, 152, 0.9);
+}
+#directions-modal-content-wrapper a:hover {
+    transform: scale(1.02);
+    background-color: rgba(253, 212, 0, 1);
+    color: black;
+}
+
+
+/* Footer */
+footer {
+    background-color: rgba(0, 67, 152, 0.9); /* bg-gray-800 di Tailwind */
+    color: #ffffff; /* text-white di Tailwind */
+    border-top-left-radius: 1rem; /* rounded-t-xl */
+    border-top-right-radius: 1rem; /* rounded-t-xl */
+    position: relative; /* Per assicurare che sia sopra il background-blur-overlay */
+    z-index: 10;
+}

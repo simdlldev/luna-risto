@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menù del Giorno - Il Tuo Ristorante</title>
+    <!-- Tailwind CSS CDN per uno styling rapido e responsivo -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-mobile.css" media="(max-width: 768px)">
+    <!-- Font Inter da Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 antialiased">
+    <!-- Overlay di sfondo con immagine e blur -->
+    <div id="background-blur-overlay"></div>
+
+    <header class=" shadow-md py-6 px-4 sm:px-6 lg:px-8 ">
+        <div class="container mx-auto flex flex-col sm:flex-row justify-center sm:justify-start items-center">
+            <div class="flex items-center mb-4 sm:mb-0 sm:mr-auto">
+                <img src="/luna.png" alt="Logo Ristorante" class="h-12 mr-3 rounded-lg">
+                <div class="text-4xl font-bold rounded-lg">Ristorante Lunathico</h1>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto mt-8 px-4 sm:px-6 lg:px-8 pb-12">
+        <section class="p-8 shadow-lg ">
+            <h2 id="menu-title" class="text-3xl font-semibold text-gray-900 mb-6 text-center">Menù del Giorno</h2>
+            <p id="current-date-time" class="text-center text-gray-600 mb-8"></p>
+
+            <div id="menu-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- I piatti del menù verranno inseriti qui dal JavaScript -->
+            </div>
+
+            <div class="flex justify-center mt-12">
+                <button id="directions-button" class=" hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105 flex items-center gap-2">
+                    <span class="material-icons">directions</span>
+                    Come Raggiungerci
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modale per i dettagli del piatto (fuori da main!) -->
+    <div id="item-detail-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-white p-8 rounded-xl shadow-2xl max-w-2xl w-full relative transform transition-all scale-95 opacity-0" id="modal-content-wrapper">
+            <button id="close-modal" class="absolute top-4 right-4 text-gray-600 hover:text-gray-900 text-3xl font-bold rounded-full p-2 leading-none">&times;</button>
+            <h3 id="detail-item-name" class="text-3xl font-bold text-gray-900 mb-4"></h3>
+            <p id="detail-item-price" class="text-2xl text-orange-600 mb-4"></p>
+            <div id="detail-item-labels" class="flex flex-wrap gap-2 mb-6"></div>
+            <img id="detail-item-image" src="" alt="Immagine del piatto" class="w-full h-64 object-cover rounded-xl mb-6 shadow-md">
+            <p id="detail-item-description" class="text-gray-700 leading-relaxed text-lg"></p>
+        </div>
+    </div>
+
+    <!-- Modale per le Indicazioni Stradali (fuori da main!) -->
+    <div id="directions-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-white p-8 rounded-xl shadow-2xl max-w-lg w-full relative transform transition-all scale-95 opacity-0" id="directions-modal-content-wrapper">
+            <button id="close-directions-modal" class="absolute top-4 right-4 text-gray-600 hover:text-gray-900 text-3xl font-bold rounded-full p-2 leading-none">&times;</button>
+            <h3 class="text-3xl font-bold text-gray-900 mb-4 text-center">Come Raggiungerci</h3>
+            <p class="text-gray-700 mb-2"><strong class="text-gray-800">Orario:</strong> <span>Pranzo 12:00-15:00 / Cena 18:00-22:00</span></p>
+            <p class="text-gray-700 mb-2"><strong class="text-gray-800">Indirizzo:</strong> <span id="directions-address"></span></p>
+            <pq>-</pq>
+            <!-- <p class="text-gray-700 mb-2"><strong class="text-gray-800">Telefono:</strong> <span id="directions-phone"></span></p> -->
+            <!-- <p class="text-gray-700 mb-6"><strong class="text-gray-800">Email:</strong> <span id="directions-email"></span></p> -->
+            <a id="google-maps-link" href="#" target="_blank" class="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">
+                Apri su Google Maps
+            </a>
+        </div>
+    </div>
+
+    <footer class=" text-white py-6 px-4 sm:px-6 lg:px-8 mt-8 rounded-t-xl">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Ristorante Lunathico. Tutti i diritti riservati.</p>
+            <p class="text-sm mt-2">Indirizzo: <span id="footer-address">Parco Due Laghetti, Villanova Canavese</span></p>
+            <!-- <p class="text-sm">Telefono: <span id="footer-phone">+39 0123 456789</span> | Email: <span id="footer-email">info@tuoristorante.it</span></p> -->
+        </div>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
