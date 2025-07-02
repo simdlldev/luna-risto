@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const dailyMenu = menuData[currentDay]?.[mealPeriod] || [];
 
-        menuTitle.textContent = `Menù del ${currentDay} - ${mealPeriod === 'pranzo' ? 'Pranzo' : 'Cena'}`;
+        menuTitle.textContent = `Menù del ${currentDay}  ${mealPeriod === 'pranzo' ? 'Pranzo' : 'Cena'}`;
         //currentDateTimeElement.textContent = `Aggiornato al: ${formatDateTime(now)}`;
 
         menuContainer.innerHTML = ''; // Pulisce il contenitore del menù
