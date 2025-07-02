@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const daysOfWeek = ["Domenica", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"];
     const menuContainer = document.getElementById('menu-container');
     const menuTitle = document.getElementById('menu-title');
-    const currentDateTimeElement = document.getElementById('current-date-time');
+    //const currentDateTimeElement = document.getElementById('current-date-time');
 
     const itemDetailModal = document.getElementById('item-detail-modal');
     const closeModalButton = document.getElementById('close-modal');
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const dailyMenu = menuData[currentDay]?.[mealPeriod] || [];
 
         menuTitle.textContent = `Menù del ${currentDay} - ${mealPeriod === 'pranzo' ? 'Pranzo' : 'Cena'}`;
-        currentDateTimeElement.textContent = `Aggiornato al: ${formatDateTime(now)}`;
+        //currentDateTimeElement.textContent = `Aggiornato al: ${formatDateTime(now)}`;
 
         menuContainer.innerHTML = ''; // Pulisce il contenitore del menù
 
@@ -107,6 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
         dailyMenu.forEach(item => {
             const card = document.createElement('div');
             card.className = 'menu-item-card bg-white shadow-md overflow-hidden transform transition-all hover:scale-105 cursor-pointer flex flex-col';
+            // Usa item.image per la visualizzazione nella card del menu
             card.innerHTML = `
                 <img src="${item.image}" alt="${item.name}" class="w-full h-48 object-cover rounded-t-xl">
                 <div class="menu-item-content p-6 flex flex-col flex-grow">
@@ -116,6 +117,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         ${item.labels.map(label => `<span class="label bg-amber-100 text-amber-800 px-3 py-1 rounded-lg text-sm font-semibold">${getLabelIcon(label)} ${label}</span>`).join('')}
                     </div>
                 </div>
+                <!-- Icona "Info" nell'angolo in basso a destra -->
+                <span class="material-symbols-rounded info-icon">info</span>
             `;
             card.addEventListener('click', () => showItemDetail(item));
             menuContainer.appendChild(card);
@@ -129,7 +132,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function showItemDetail(item) {
         detailItemName.textContent = item.name;
         detailItemPrice.textContent = item.price;
-        detailItemImage.src = item.image;
+        // Usa item.detailImage se definita, altrimenti fallback a item.image
+        detailItemImage.src = item.detailImage || item.image;
         detailItemImage.alt = item.name;
         detailItemDescription.innerHTML = item.description;
 
