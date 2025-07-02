@@ -152,7 +152,7 @@ export const menuData = {
             {
                 name: "Pasta e Fagioli",
                 price: "€9.00",
-                labels: ["Vegetariano", "Vegano"],
+                labels: ["Vegetariano", "Vegano", "Gluten Free"],
                 description: "Una zuppa densa e confortante con pasta corta e fagioli borlotti, arricchita con erbe aromatiche. Perfetta per riscaldarsi.",
                 image: "https://placehold.co/400x300/CD853F/FFFFFF?text=Pasta+e+Fagioli"
             },
@@ -168,7 +168,8 @@ export const menuData = {
                 price: "€9.00",
                 labels: [],
                 description: "Un panino rustico ripieno di succulenta porchetta romana e cicoria ripassata in padella. Un vero comfort food.",
-                image: "https://placehold.co/400x300/D2B48C/000000?text=Panino+Porchetta"
+                image: "https://placehold.co/400x300/D2B48C/000000?text=Panino+Porchetta",
+                detailImage: "https://placehold.co/600x400/D2B48C/000000?text=Panino+Porchetta+Dettaglio"
             }
         ],
         "cena": [
@@ -184,7 +185,8 @@ export const menuData = {
                 price: "€19.00",
                 labels: ["Gluten Free"],
                 description: "Orata intera cotta sotto una crosta di sale, che ne preserva la tenerezza e il sapore. Servita con verdure fresche.",
-                image: "https://placehold.co/400x300/ADD8E6/000000?text=Orata+al+Sale"
+                image: "https://placehold.co/400x300/ADD8E6/000000?text=Orata+al+Sale",
+                detailImage: "https://placehold.co/600x400/ADD8E6/000000?text=Orata+al+Sale+Dettaglio"
             },
             {
                 name: "Lasagne al Forno",
