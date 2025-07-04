@@ -112,6 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <img src="${item.image}" alt="${item.name}" class="w-full h-48 object-cover rounded-t-xl">
                 <div class="menu-item-content p-6 flex flex-col flex-grow">
                     <h3 class="text-2xl font-semibold text-gray-900 mb-2">${item.name}</h3>
+                    ${item.shortDescription ? `<p class="text-gray-700 text-base mb-2">${item.shortDescription}</p>` : ''}
                     <p class="price text-xl text-orange-600 font-bold mb-4">${item.price}</p>
                     <div class="menu-item-labels flex flex-wrap gap-2 mt-auto">
                         ${item.labels.map(label => `<span class="label bg-amber-100 text-amber-800 px-3 py-1 rounded-lg text-sm font-semibold">${getLabelIcon(label)} ${label}</span>`).join('')}
@@ -250,4 +251,27 @@ window.addEventListener('popstate', function (event) {
 window.addEventListener('DOMContentLoaded', () => {
     history.replaceState({ modal: null }, '');
     // ...resto del tuo codice...
+});
+
+function isMobileDevice() {
+    return /android|iphone|ipad|ipod|opera mini|iemobile|blackberry|mobile/i.test(navigator.userAgent);
+}
+
+function checkDesktopMode() {
+    const modal = document.getElementById('desktop-warning-modal');
+    // Mostra il popup solo se NON è un device mobile
+    if (!isMobileDevice()) {
+        modal.classList.remove('hidden');
+    } else {
+        modal.classList.add('hidden');
+    }
+}
+
+// Mostra/nascondi il popup al caricamento e al resize
+window.addEventListener('DOMContentLoaded', checkDesktopMode);
+window.addEventListener('resize', checkDesktopMode);
+
+// Chiudi il popup manualmente
+document.getElementById('close-desktop-warning').addEventListener('click', function() {
+    document.getElementById('desktop-warning-modal').classList.add('hidden');
 });
