@@ -2,12 +2,12 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
     <title>Menù del Giorno - Ristorante Lunathico</title>
     <!-- Tailwind CSS CDN per uno styling rapido e responsivo -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="style-mobile.css" media="(max-width: 768px)">
+    <link rel="stylesheet" href="style-mobile.css"> <!-- media="(max-width: 768px)"> -->
     <link rel="icon" type="image/png" href="luna.png">
     <!-- Font Inter da Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -32,7 +32,7 @@
         <div class="container mx-auto flex flex-col sm:flex-row justify-center sm:justify-start items-center">
             <div class="flex items-center mb-4 sm:mb-0 sm:mr-auto">
                 <img src="luna.png" alt="Lunathica Logo" class="h-12 mr-3 rounded-lg">
-                <div class="text-4xl font-bold rounded-lg">Ristorante Lunathico</h1>
+                <div class="text-4xl font-bold rounded-lg">Ristorante Lunathico</div>
             </div>
         </div>
     </header>
@@ -49,7 +49,7 @@
             <div class="flex justify-center mt-12">
                 <button id="directions-button" class=" hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105 flex items-center gap-2">
                     <span class="material-icons">directions</span>
-                    Come Raggiungerci
+                    Scopri Come Raggiungerci
                 </button>
             </div>
         </section>
@@ -60,7 +60,7 @@
         <div class="bg-white p-8 rounded-xl shadow-2xl max-w-2xl w-full relative transform transition-all scale-95 opacity-0" id="modal-content-wrapper">
             <button id="close-modal" class="absolute top-4 right-4 text-gray-600 hover:text-gray-900 text-3xl font-bold rounded-full p-2 leading-none">&times;</button>
             <h3 id="detail-item-name" class="text-3xl font-bold text-gray-900 mb-4"></h3>
-            <p id="detail-item-price" class="text-2xl text-orange-600 mb-4"></p>
+            <p id="detail-item-price" class="text-2xl texortigrafiat-orange-600 mb-4"></p>
             <div id="detail-item-labels" class="flex flex-wrap gap-2 mb-6"></div>
             <img id="detail-item-image" src="" alt="Immagine del piatto" class="w-full h-64 object-cover rounded-xl mb-6 shadow-md">
             <p id="detail-item-description" class="text-gray-700 leading-relaxed text-lg"></p>
@@ -93,5 +93,14 @@
     </footer>
 
     <script type="module" src="script.js"></script>
+    <!-- Popup per utenti desktop -->
+<div id="desktop-warning-modal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-[9999] hidden">
+    <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-xs w-full text-center relative">
+        <button id="close-desktop-warning" class="absolute top-3 right-3 text-gray-500 hover:text-gray-900 text-2xl font-bold rounded-full p-1 leading-none">&times;</button>
+        <span class="material-icons text-blue-600 text-5xl mb-4">desktop_windows</span>
+        <h3 class="text-xl font-bold mb-2">Modalità Desktop Attiva</h3>
+        <p class="text-gray-700 mb-2">Per una migliore esperienza, disabilita la modalità desktop nelle impostazioni del browser.</p>
+    </div>
+</div>
 </body>
 </html>
