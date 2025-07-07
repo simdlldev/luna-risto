@@ -61,7 +61,7 @@
     }
 
     .menu-item-card img {
-        height: 180px; /* Riduci l'altezza delle immagini delle card */
+        height: 130px; /* Riduci l'altezza delle immagini delle card */
     }
 
     .menu-item-content {
@@ -99,7 +99,7 @@
     }
 
     #detail-item-image {
-        height: 200px; /* Riduci l'altezza dell'immagine del dettaglio */
+        height: 150px !important; /* Riduci l'altezza dell'immagine del dettaglio */
     }
 
     #detail-item-description {
