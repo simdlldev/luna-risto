@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const hour = now.getHours();
         // Consideriamo il pranzo tra le 12:00 e le 15:00
         // e la cena dalle 19:00 in poi.
-        if (hour >= 12 && hour < 15) {
+        if (hour >= 10 && hour < 15) {
             return 'pranzo';
         } else if (hour >= 19 || hour < 5) { // Dalle 19:00 alle 04:59 del giorno dopo
             return 'cena';
@@ -111,8 +111,12 @@ document.addEventListener('DOMContentLoaded', () => {
             card.innerHTML = `
                 <img src="${item.image}" alt="${item.name}" class="w-full h-48 object-cover rounded-t-xl">
                 <div class="menu-item-content p-6 flex flex-col flex-grow">
-                    <h3 class="text-2xl font-semibold text-gray-900 mb-2">${item.name}</h3>
-                    ${item.shortDescription ? `<p class="text-gray-700 text-base mb-2">${item.shortDescription}</p>` : ''}
+                    <!-- <h3 class="text-2xl font-semibold text-gray-900 mb-2">${item.name}</h3> -->
+                    ${
+                        item.shortDescription
+                            ? `<p class="text-gray-700 text-base mb-2">${item.shortDescription}</p>`
+                            : (item.description ? `<p class="text-gray-700 text-base mb-2">${item.description}</p>` : '')
+                    }
                     <p class="price text-xl text-orange-600 font-bold mb-4">${item.price}</p>
                     <div class="menu-item-labels flex flex-wrap gap-2 mt-auto">
                         ${item.labels.map(label => `<span class="label bg-amber-100 text-amber-800 px-3 py-1 rounded-lg text-sm font-semibold">${getLabelIcon(label)} ${label}</span>`).join('')}
