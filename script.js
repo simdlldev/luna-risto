@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
         menuContainer.innerHTML = ''; // Pulisce il contenitore del menù
 
         if (dailyMenu.length === 0) {
-            menuContainer.innerHTML = '<p class="text-center text-gray-600 text-xl">Nessun menù disponibile per questo periodo. Torna più tardi!</p>';
+            menuContainer.innerHTML = '<p class="text-center text-gray-600 text-xl">Oggi il Ristorante Lunathico è chiuso. Apriamo mercoledì sera.</p>';
             return;
         }
 
