@@ -255,6 +255,8 @@ pq {
 #detail-item-image {
     border-radius: 1rem; /* rounded-xl di Tailwind */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md di Tailwind */
+    height: 100px !important;
+    object-fit: cover;
 }
 
 /* Stili specifici per il modale delle indicazioni stradali */
