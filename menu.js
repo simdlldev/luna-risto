@@ -799,11 +799,11 @@ export const menuData = {
                 image: "https://placehold.co/400x150/DC143C/FFFFFF?text=Caprese",
             },
             {
-                name: "Patate al Forno",
+                name: "Patatine Fritte",
                 price: "€4.00",
                 labels: ["Vegano", "Gluten Free"],
                 description: "",
-                image: "https://placehold.co/400x150/DAA520/FFFFFF?text=Patate+al+Forno",
+                image: "https://placehold.co/400x150/DAA520/FFFFFF?text=Patatine\\nFritte",
             },
             {
                 name: "Insalata Ricca",
